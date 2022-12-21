@@ -9,6 +9,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime as dt
+from bokeh.plotting import figure
 
 #Title and opening paragraph
 st.title("SF Trees")
@@ -40,15 +41,24 @@ st.subheader('Plotly Charts')
 fig = px.histogram(trees_df['dbh'])
 st.plotly_chart(fig)
 
-# Matplotlib & Seaborn vis
-tree_age_df = trees_df['age'] = (pd.to_datetime('today') - pd.to_datetime(trees_df['date'])).dt.days
+#Seaborn vis
+tree_age_df = trees_df['age'] = (pd.to_datetime('today') - pd.to_datetime(trees_df['date'])). dt.days
 st.subheader('Seaborn Chart')
 fig_sb, ax_sb = plt.subplots()
 ax_sb = sns.histplot(trees_df['age'])
 plt.xlabel('Age (Days)')
 st.pyplot(fig_sb)
+
+#Matplotlib vis
 st.subheader('Matplotlib Chart')
 fig_mpl, ax_mpl = plt.subplots()
 ax_mpl = plt.hist(trees_df['age'])
 plt.xlabel('Age (Days)')
 st.pyplot(fig_mpl)
+
+#Bokeh vis
+st.subheader('Bokeh Chart')
+scatterplot = figure(title = 'Bokeh Scatterplot')
+scatterplot.scatter(trees_df['dbh'],trees_df['site order'])
+st.bokeh_chart(scatterplot)
+scatterplot.xaxis.axis_label="dbh"
