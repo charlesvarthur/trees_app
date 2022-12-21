@@ -5,6 +5,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import plotly.express as px
 
 #Title and opening paragraph
 st.title("SF Trees")
@@ -30,3 +31,7 @@ st.area_chart(df_dbh_grouped)
 map_df = trees_df.dropna(subset=['longitude','latitude'])
 map_df = map_df.sample(n=1000)
 st.map(map_df)
+
+st.subheader('Plotly Charts')
+fig = px.histogram(trees_df['dbh'])
+st.plotly_chart(fig)
