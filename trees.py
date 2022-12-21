@@ -32,6 +32,7 @@ map_df = trees_df.dropna(subset=['longitude','latitude'])
 map_df = map_df.sample(n=1000)
 st.map(map_df)
 
+#Create dbh plotly chart
 st.subheader('Plotly Charts')
 fig = px.histogram(trees_df['dbh'])
 st.plotly_chart(fig)
