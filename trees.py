@@ -4,6 +4,7 @@
 
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 #Title and opening paragraph
 st.title("SF Trees")
@@ -17,7 +18,10 @@ trees_df = pd.read_csv('https://raw.githubusercontent.com/tylerjrichards/Streaml
 
 df_dbh_grouped = pd.DataFrame(trees_df.groupby(['dbh']).count()['tree_id'])
 df_dbh_grouped.columns = ['tree_count']
+df_dbh_grouped['new_col'] = np.random.randn(len(df_dbh_grouped)) * 500
 
+
+#Visualise
 st.line_chart(df_dbh_grouped)
 st.bar_chart(df_dbh_grouped)
 st.area_chart(df_dbh_grouped)
