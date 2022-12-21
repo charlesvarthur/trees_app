@@ -9,7 +9,8 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime as dt
-from bokeh.plotting import figure
+import altair as alt
+#from bokeh.plotting import figure
 
 #Title and opening paragraph
 st.title("SF Trees")
@@ -64,3 +65,7 @@ st.pyplot(fig_mpl)
 # scatterplot.scatter(trees_df['dbh'],trees_df['site_order'])
 # scatterplot.xaxis.axis_label = "dbh"
 # st.bokeh_chart(scatterplot)
+
+#Altair code
+fig = alt.Chart(trees_df).mark_bar().encode(x = 'caretaker', y = 'count(*):Q')
+st.altair_chart(fig)
