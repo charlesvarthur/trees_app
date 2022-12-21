@@ -6,6 +6,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import matplotlib.pyplot as plt
+import seaborn as sns
+import datetime as dt
 
 #Title and opening paragraph
 st.title("SF Trees")
@@ -36,3 +39,10 @@ st.map(map_df)
 st.subheader('Plotly Charts')
 fig = px.histogram(trees_df['dbh'])
 st.plotly_chart(fig)
+
+# Matplotlib & Seaborn vis
+tree_age_df = trees_df['age'] = (pd.to_datetime('today') - pd.to_datetime(trees_df['date'])).dt.days
+st.subheader('Seaborn Chart')
+fig_sb, ax_sb = plt.subplots()
+ax_sb = sns.histplot(trees_df['age'])
+plt.xlabel('Age (Days)')
