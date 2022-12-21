@@ -21,7 +21,12 @@ df_dbh_grouped.columns = ['tree_count']
 df_dbh_grouped['new_col'] = np.random.randn(len(df_dbh_grouped)) * 500
 
 
-#Visualise
+#Visualise easy to create graphs for simple data
 st.line_chart(df_dbh_grouped)
 st.bar_chart(df_dbh_grouped)
 st.area_chart(df_dbh_grouped)
+
+#Visualise map data with st.map
+map_df = trees_df.dropna(subset=['longitude','latitude'])
+map_df = map_df.sample(n=1000)
+st.map(map_df)
