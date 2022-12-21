@@ -69,3 +69,5 @@ st.pyplot(fig_mpl)
 #Altair code
 fig = alt.Chart(trees_df).mark_bar().encode(x = 'caretaker', y = 'count(*):Q')
 st.altair_chart(fig)
+
+#PyDeck for geographical visualisation requires additional setup and accounts - will revisit this if and when required. 
