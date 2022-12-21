@@ -56,10 +56,11 @@ ax_mpl = plt.hist(trees_df['age'])
 plt.xlabel('Age (Days)')
 st.pyplot(fig_mpl)
 
-#Bokeh vis
-st.subheader('Bokeh Chart')
-trees_df = pd.read_csv('https://raw.githubusercontent.com/tylerjrichards/Streamlit-for-Data-Science/main/trees_app/trees.csv')
-scatterplot = figure(title = 'Bokeh Scatterplot')
-scatterplot.scatter(trees_df['dbh'],trees_df['site_order'])
-scatterplot.xaxis.axis_label = "dbh"
-st.bokeh_chart(scatterplot)
+#Commentef out Bokeh visual, which will not display due to the following error:
+#streamlit.errors.StreamlitAPIException: Streamlit only supports Bokeh version 2.4.3, but you have version 3.0.3 installed. Please run `pip install --force-reinstall --no-deps bokeh==2.4.3` to install the correct version.
+# st.subheader('Bokeh Chart')
+# trees_df = pd.read_csv('https://raw.githubusercontent.com/tylerjrichards/Streamlit-for-Data-Science/main/trees_app/trees.csv')
+# scatterplot = figure(title = 'Bokeh Scatterplot')
+# scatterplot.scatter(trees_df['dbh'],trees_df['site_order'])
+# scatterplot.xaxis.axis_label = "dbh"
+# st.bokeh_chart(scatterplot)
