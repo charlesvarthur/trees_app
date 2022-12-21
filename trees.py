@@ -5,7 +5,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title('SF Trees')
+st.title("SF Trees")
 st.write('This app analyses the trees in San Francisco using'
            ' a dataset kindly provided by SG DPW')
 
