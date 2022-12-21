@@ -58,7 +58,8 @@ st.pyplot(fig_mpl)
 
 #Bokeh vis
 st.subheader('Bokeh Chart')
+trees_df = pd.read_csv('https://raw.githubusercontent.com/tylerjrichards/Streamlit-for-Data-Science/main/trees_app/trees.csv')
 scatterplot = figure(title = 'Bokeh Scatterplot')
 scatterplot.scatter(trees_df['dbh'],trees_df['site_order'])
 st.bokeh_chart(scatterplot)
-scatterplot.xaxis.axis_label="dbh"
+scatterplot.xaxis.axis_label = "dbh"
