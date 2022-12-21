@@ -59,6 +59,6 @@ st.pyplot(fig_mpl)
 #Bokeh vis
 st.subheader('Bokeh Chart')
 scatterplot = figure(title = 'Bokeh Scatterplot')
-scatterplot.scatter(trees_df['dbh'],trees_df['site order'])
+scatterplot.scatter(trees_df['dbh'],trees_df['site_order'])
 st.bokeh_chart(scatterplot)
 scatterplot.xaxis.axis_label="dbh"
